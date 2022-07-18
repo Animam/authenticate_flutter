@@ -1,3 +1,4 @@
+import 'package:authenticate_flutter/colors.dart';
 import 'package:flutter/material.dart';
 
 TextField reuseable_widget(String text, IconData icon, bool isPasswordType,
@@ -11,10 +12,10 @@ TextField reuseable_widget(String text, IconData icon, bool isPasswordType,
     decoration: InputDecoration(
       prefixIcon: Icon(
         icon,
-        color: Colors.black,
+        color: GREEN,
       ),
       labelText: text,
-      labelStyle: TextStyle(
+      labelStyle: const TextStyle(
           // color: Colors.white.withOpacity(0.9),
           ),
       floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -44,8 +45,8 @@ Container signInSignUpButton(
       },
       child: Text(
         isLogin ? 'Log In' : 'Sign Up',
-        style: TextStyle(
-          color: Colors.black87,
+        style: const TextStyle(
+          color: Colors.white,
           fontWeight: FontWeight.bold,
           fontSize: 16,
         ),
@@ -55,7 +56,7 @@ Container signInSignUpButton(
             if (states.contains(MaterialState.pressed)) {
               return Colors.black26;
             }
-            return Colors.blue;
+            return GREEN;
           }),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),

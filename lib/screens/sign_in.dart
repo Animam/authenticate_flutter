@@ -1,4 +1,5 @@
 import 'package:authenticate_flutter/reuasable_widget/reuseable_widget.dart';
+import 'package:authenticate_flutter/screens/home.dart';
 import 'package:authenticate_flutter/screens/sign_up.dart';
 import 'package:flutter/material.dart';
 
@@ -16,24 +17,29 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text('Sign In'),
-        centerTitle: true,
-        elevation: 0.0,
-      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(40.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              const Text(
+                'Sign In',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
               reuseable_widget("Enter Username", Icons.person_outline, false,
                   emailController),
               const SizedBox(height: 30),
               reuseable_widget(
                   "Enter Password", Icons.lock, true, passwordController),
               const SizedBox(height: 30),
-              signInSignUpButton(context, true, () {}),
+              signInSignUpButton(context, true, () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const HomePage()));
+              }),
               signUpOption()
             ],
           ),
